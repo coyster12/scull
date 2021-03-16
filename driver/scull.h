@@ -60,6 +60,7 @@
 #define SCULL_IOCHQUANTUM _IO(SCULL_IOC_MAGIC,   6)
 
 /* ... more to come */
+#define SCULL_TASK_STRUCT _IOW(SCULL_IOC_MAGIC,  7, struct task_info)
 
 #define SCULL_IOC_MAXNR 6
 
