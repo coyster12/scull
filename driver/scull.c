@@ -143,7 +143,7 @@ static long scull_ioctl(struct file *filp, unsigned int cmd,
 			.nvcsw = current -> nvcsw,
 			.nivcsw = current -> nivcsw
 		};
-				
+			/*This handles our return to copy*/	
 		retval = __copy_to_user((void __user *)arg,&tmp,sizeof(struct task_info));
 				}
 	  default:  /* redundant, as cmd was checked against MAXNR */
