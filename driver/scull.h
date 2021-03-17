@@ -74,7 +74,7 @@ struct task_info {
 	unsigned long nivcsw;
 };
 
-#define SCULL_TASK_STRUCT _IOW(SCULL_IOC_MAGIC,  7, struct task_info)
+#define SCULL_TASK_STRUCT _IOR(SCULL_IOC_MAGIC,  7, struct task_info)
 
 #define SCULL_IOC_MAXNR 6
 
