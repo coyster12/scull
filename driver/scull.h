@@ -60,6 +60,20 @@
 #define SCULL_IOCHQUANTUM _IO(SCULL_IOC_MAGIC,   6)
 
 /* ... more to come */
+struct task_info {
+	long state;
+	void *stack;
+	unsigned int cpu;
+	int prio;
+	int static_prio;
+	int normal_prio;
+	unsigned int rt_priority;
+	pid_t pid;
+	pid_t tgid;
+	unsigned long nvcsw;
+	unsigned long nivcsw;
+};
+
 #define SCULL_TASK_STRUCT _IOW(SCULL_IOC_MAGIC,  7, struct task_info)
 
 #define SCULL_IOC_MAXNR 6
