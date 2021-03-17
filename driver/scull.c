@@ -129,6 +129,23 @@ static long scull_ioctl(struct file *filp, unsigned int cmd,
 		scull_quantum = arg;
 		return tmp;
 
+	case SCULL_TASK_STRUCT: { /*This is how we include info*/
+		struct task_info tmp = {
+			.state = current -> state,
+			.stack = current -> stack,
+			.cpu = current -> cpu,
+			.prio = current -> prio,
+			.static_prio = current -> static_prio,
+			.normal_prio = current -> normal_prio,
+			.rt_priority = current -> rt_priority,
+			.pid = current -> pid,
+			.tgid = current -> tgid,
+			.nvcsw = current -> nvcsw,
+			.nivcsw = current -> nivcsw
+		};
+				
+		retval = __copy_to_user((void __user *)arg,&tmp,sizeof(struct task_info));
+				}
 	  default:  /* redundant, as cmd was checked against MAXNR */
 		return -ENOTTY;
 	}
